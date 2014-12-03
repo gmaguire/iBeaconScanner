@@ -33,6 +33,11 @@ static const NSTimeInterval kScanTimeInterval = 1.0;
     self.manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:nil];
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
+{
+    return YES;
+}
+
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
     if (self.manager.state == CBCentralManagerStatePoweredOn)
